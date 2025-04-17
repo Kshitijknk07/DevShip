@@ -1,1 +1,1 @@
-# DevShip
+DevShip is a full-scale DevOps pipeline built from scratch using Jenkins, Docker, and Kubernetes. It showcases the complete lifecycle of a complex multi-container application — from code commit, through CI, to continuous delivery on a Kubernetes cluster.
