@@ -1,19 +1,20 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { useEffect } from 'react'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import { useEffect } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [backendMessage, setBackendMessage] = useState('')
+  const [count, setCount] = useState(0);
+  const [backendMessage, setBackendMessage] = useState("");
+  const [customMessage, setCustomMessage] = useState("");
 
   useEffect(() => {
-    fetch('http://localhost:5000/')
+    fetch("http://localhost:5000/")
       .then((res) => res.text())
       .then((data) => setBackendMessage(data))
-      .catch(() => setBackendMessage('Could not fetch backend message'))
-  }, [])
+      .catch(() => setBackendMessage("Could not fetch backend message"));
+  }, []);
 
   return (
     <>
@@ -39,11 +40,21 @@ function App() {
         <h3>Backend says:</h3>
         <p>{backendMessage}</p>
       </div>
+      <div className="card">
+        <h3>Custom Message:</h3>
+        <input
+          type="text"
+          placeholder="Type your message here"
+          value={customMessage}
+          onChange={(e) => setCustomMessage(e.target.value)}
+        />
+        <p>{customMessage && `You typed: ${customMessage}`}</p>
+      </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
