@@ -8,6 +8,7 @@ function App() {
   const [backendMessage, setBackendMessage] = useState("");
   const [customMessage, setCustomMessage] = useState("");
   const [showAbout, setShowAbout] = useState(false);
+  const [info, setInfo] = useState(null);
 
   useEffect(() => {
     fetch("http://localhost:5000/")
@@ -16,12 +17,24 @@ function App() {
       .catch(() => setBackendMessage("Could not fetch backend message"));
   }, []);
 
+  // Fetch /api/info from backend
+  useEffect(() => {
+    fetch("http://localhost:5000/api/info")
+      .then((res) => res.json())
+      .then((data) => setInfo(data))
+      .catch(() => setInfo(null));
+  }, []);
+
   return (
     <>
       <nav className="navbar">
         <span className="nav-title">DevShip 🚀</span>
-        <button className="nav-btn" onClick={() => setShowAbout(false)}>Home</button>
-        <button className="nav-btn" onClick={() => setShowAbout(true)}>About</button>
+        <button className="nav-btn" onClick={() => setShowAbout(false)}>
+          Home
+        </button>
+        <button className="nav-btn" onClick={() => setShowAbout(true)}>
+          About
+        </button>
       </nav>
       {!showAbout ? (
         <>
@@ -57,6 +70,24 @@ function App() {
             />
             <p>{customMessage && `You typed: ${customMessage}`}</p>
           </div>
+          <div className="card">
+            <h3>Backend Info:</h3>
+            {info ? (
+              <ul>
+                <li>
+                  <b>Project:</b> {info.project}
+                </li>
+                <li>
+                  <b>Status:</b> {info.status}
+                </li>
+                <li>
+                  <b>Time:</b> {info.time}
+                </li>
+              </ul>
+            ) : (
+              <p>Loading backend info...</p>
+            )}
+          </div>
           <p className="read-the-docs">
             Click on the Vite and React logos to learn more
           </p>
@@ -65,9 +96,11 @@ function App() {
         <section className="about-section">
           <h2>About DevShip</h2>
           <p>
-            DevShip is a modern multi-container application starter kit using React, Node.js, and Docker.
+            DevShip is a modern multi-container application starter kit using
+            React, Node.js, and Docker.
             <br />
-            This demo shows live frontend-backend integration and a working CI/CD pipeline!
+            This demo shows live frontend-backend integration and a working
+            CI/CD pipeline!
           </p>
         </section>
       )}
