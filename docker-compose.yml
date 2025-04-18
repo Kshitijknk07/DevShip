@@ -28,5 +28,13 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
 
+  ngrok:
+    image: ngrok/ngrok:latest
+    command: http backend:5000
+    depends_on:
+      - backend
+    environment:
+      - NGROK_AUTHTOKEN=2vtCyfUUssW0ilFICH0kl02z3KD_3WUKe6pDMpywGZZ1pN4Ev
+
 volumes:
   db_data:
