@@ -1,105 +1,78 @@
 # 🚢 DevShip
 
-DevShip is a modern starter kit for building multi-container applications, emphasizing DevOps best practices. It leverages Docker, Docker Compose, and Jenkins to streamline development, testing, and deployment of full-stack applications using **React**, **Node.js**, and **PostgreSQL**.
+DevShip is a modern,starter kit for building and deploying full-stack applications using **React** and **Node.js (Express)**, fully containerized with **Docker**. It’s designed for developers who want a clean, professional, and easy-to-use foundation for real-world projects, with built-in DevOps best practices.
 
 ---
 
-## ⚙️ DevOps Focus
+## 🌟 Features
 
-DevShip is designed to help teams adopt DevOps workflows from day one. The project integrates essential DevOps tools and patterns, enabling rapid iteration, automated testing, and reliable deployments.
-
-### 🔧 Key DevOps Tools & Features
-
-- **Docker**  
-  - Containerizes both frontend and backend for consistent environments  
-  - Each service (frontend, backend, database) has its own Dockerfile for isolated builds  
-
-- **Docker Compose**  
-  - Orchestrates multi-container environments with a single command: `docker-compose up`  
-  - Simplifies service networking and environment variable management  
-
-- **Jenkins**  
-  - Jenkinsfile included for CI/CD automation  
-  - Supports automated builds, tests, and deployments on code changes  
-
-- **Environment Management**  
-  - Uses `.env` files and Docker secrets for secure configuration  
-  - Sensitive files excluded via `.gitignore` and `.dockerignore`  
-
-- **Developer Experience**  
-  - Hot reloading for React frontend and Node.js backend  
-  - Pre-configured linting and formatting (ESLint, Prettier)  
+- **Full-Stack Ready:** React frontend + Express backend, fully containerized.
+- **One-Command Startup:** Launch everything with `docker compose up --build`.
+- **Live API & Real-Time:** Example API and WebSocket integration out of the box.
+- **Production-Grade Docker:** Nginx reverse proxy, static frontend, API proxying.
+- **CI/CD Ready:** GitHub Actions workflow included for automated builds and tests.
+- **Clean Code & Linting:** Pre-configured ESLint and formatting for both frontend and backend.
+- **Easy Customization:** Simple structure, clear separation of concerns, and ready for your features.
 
 ---
 
 ## 📁 Project Structure
 
-```text
+```
 DevShip/
-├── backend/                     # Node.js Express API
-│   ├── Dockerfile               # Backend container definition
-│   ├── index.js                 # Entry point for the API
-│   ├── package.json             # Node.js dependencies and scripts
-│   ├── .dockerignore            # Ignore rules for backend Docker build
-│   └── .gitignore               # Git ignore rules
+├── backend/        # Express API (Node.js)
+│   ├── Dockerfile
+│   ├── index.js
+│   └── package.json
 │
-├── frontend/                    # React Frontend
-│   ├── Dockerfile               # Frontend container definition
-│   ├── public/                  # Public assets
-│   ├── src/                     # React source code
-│   ├── package.json             # Frontend dependencies
-│   ├── .dockerignore
-│   └── .gitignore
+├── frontend/       # React app (Vite)
+│   ├── Dockerfile
+│   ├── public/
+│   ├── src/
+│   └── package.json
 │
-├── database/                    # PostgreSQL setup
-│   ├── init.sql                 # Optional: SQL initialization script
-│   └── Dockerfile               # Optional: Custom Postgres image
-│
-├── .env                         # Environment variables for local dev
-├── docker-compose.yml           # Defines and runs multi-container Docker apps
-├── Jenkinsfile                  # Jenkins pipeline for CI/CD
-├── README.md                    # You're here!
-└── .gitignore                   # Root-level Git ignore
+├── nginx.conf      # Nginx config for production
+├── docker-compose.yml
+├── README.md
+└── .gitignore
 ```
 
-## 🚀 Getting Started
-Follow these simple steps to get the full-stack environment running on your machine.
+---
 
-1. Clone the repository
-```bash
-git clone https://github.com/yourusername/devship.git
-cd devship
-```
-2. Set up environment variables
-Create a .env file in the root directory and define your variables.
-Example
-```bash
-POSTGRES_USER=devship_user
-POSTGRES_PASSWORD=securepassword
-POSTGRES_DB=devship_db
-```
-3. Run the stack
-Use Docker Compose to start all services:
-```bash
-docker-compose up --build
-```
-- Frontend: http://localhost:3000
+## 🚀 Quick Start
 
-- Backend API: http://localhost:5000
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/devship.git
+   cd devship
+   ```
 
-- PostgreSQL: exposed on port 5432 internally
+2. **Build and run everything**
+   ```bash
+   docker compose up --build
+   ```
 
-4. Jenkins Setup (Optional)
-```bash
-- Run Jenkins using Docker or install it manually
-- Connect your repository
-- Configure pipeline using Jenkinsfile
-```
-## 🛠 Tech Stack
-- Frontend: React, JavaScript, Webpack, ESLint, Prettier
-- Backend: Node.js, Express.js
-- Database: PostgreSQL
-- DevOps: Docker, Docker Compose, Jenkins
-- CI/CD: Jenkins Pipelines
+3. **Open your browser**
+   - Frontend: [http://localhost](http://localhost)
+   - API: [http://localhost/api/info](http://localhost/api/info)
 
-By - KNK
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React (Vite, Material UI)
+- **Backend:** Node.js, Express, Socket.IO
+- **DevOps:** Docker, Docker Compose, Nginx, GitHub Actions
+
+---
+
+## 💡 Why DevShip?
+
+- **No guesswork:** Everything is pre-configured for a real project.
+- **No Jenkins, no bloat:** Uses modern GitHub Actions for CI/CD.
+- **Easy to extend:** Add your own routes, components, or services.
+- **Great for learning or launching MVPs:** See how a real production stack fits together.
+
+---
+
+**Made with ❤️ for modern developers.**
