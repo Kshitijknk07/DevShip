@@ -6,25 +6,29 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-# Build output
-dist/
+# Next.js
+.next/
+out/
 build/
-lib/
+dist/
 
-# Environment variables (CRITICAL - Never commit these!)
+# Environment variables
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-.env.*
+
+# Vercel
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
 
 # Logs
 logs/
 *.log
-npm-debug.log*
-yarn-debug.log*
-pnpm-debug.log*
 
 # Runtime data
 pids/
@@ -70,61 +74,34 @@ jspm_packages/
 .cache
 .parcel-cache
 
-# TypeScript cache
-*.tsbuildinfo
+# Next.js build output
+.next
 
-# OS/Editor files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-.idea/
-.vscode/
-*.swp
-*.swo
-*~
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+public
+
+# Storybook build outputs
+.out
+.storybook-out
+storybook-static
 
 # Temporary folders
 tmp/
 temp/
 
-# Database files (if using SQLite or similar)
-*.db
-*.sqlite
-*.sqlite3
-
-# SSL certificates
-*.pem
-*.key
-*.crt
-*.csr
-
-# Backup files
-*.bak
-*.backup
-*.old
-
-# Local configuration files
-config.local.js
-config.local.json
-
-# Test files
-test-results/
-coverage/
-
-# Docker
-.dockerignore
-
-# IDE
+# Editor directories and files
 .vscode/
 .idea/
-*.sublime-project
-*.sublime-workspace
+*.swp
+*.swo
+*~
 
-# OS
+# OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -133,28 +110,18 @@ coverage/
 ehthumbs.db
 Thumbs.db
 
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
+# Local Netlify folder
+.netlify
 
-# Linux
-*~
+# Sentry Config File
+.sentryclirc
 
-# macOS
-.AppleDouble
-.LSOverride
-Icon
-._*
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
